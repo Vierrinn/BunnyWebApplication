@@ -1,0 +1,6 @@
+@BunnyWebApplication_HostAddress = http://localhost:5004
+
+GET {{BunnyWebApplication_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
