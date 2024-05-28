@@ -19,6 +19,12 @@ namespace BunnyWebApplication.Controllers
         {
             _context = context;
         }
+        // GET: api/Products/ByCategory/5
+      [HttpGet("ByCategory/{categoryId}")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductsByCategory(int categoryId)
+        {
+            return await _context.Products.Where(p => p.CategoryId == categoryId).ToListAsync();
+        }
 
         // GET: api/Products
         [HttpGet]

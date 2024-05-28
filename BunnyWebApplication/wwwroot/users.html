@@ -1,0 +1,129 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Користувачі</title>
+    <link rel="stylesheet" href="css/site.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h3 {
+            color: #333;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            width: 80%;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"], button {
+            background-color: #ff3399;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+            input[type="submit"]:hover, button:hover {
+                background-color: #e60073;
+            }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        a {
+            cursor: pointer;
+            color: #ff3399;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Користувачі</h1>
+        <h3>Додати користувача</h3>
+        <form action="javascript:void(0);" method="POST" onsubmit="addUser()">
+            <input type="text" id="add-name" placeholder="Ім'я користувача">
+            <input type="text" id="add-login" placeholder="Логін">
+            <input type="text" id="add-password" placeholder="Пароль">
+            <input type="submit" value="Додати">
+        </form>
+
+        <div id="editUser" class="hidden">
+            <h3>Редагувати</h3>
+            <form action="javascript:void(0);" onsubmit="updateUser()">
+                <input type="hidden" id="edit-id">
+                <input type="text" id="edit-name">
+                <input type="text" id="edit-login">
+                <input type="text" id="edit-password">
+                <input type="submit" value="Зберегти">
+                <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+            </form>
+        </div>
+
+        <p id="counter"></p>
+
+        <table>
+            <tr>
+                <th>Ім'я</th>
+                <th>Логін</th>
+                <th>Пароль</th>
+                <th>Дії</th>
+            </tr>
+            <tbody id="users"></tbody>
+        </table>
+
+        <script src="js/users.js"></script>
+        <script type="text/javascript">
+            getUsers();
+        </script>
+    </div>
+</body>
+</html>
